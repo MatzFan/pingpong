@@ -3,20 +3,41 @@
   </head>
   <body>
     <title>Ping pong game!</title>
-    <div>
+    <h1>
       Player 1
-    </div>
-    <div>
+    </h1>
+    <h2 id='player1' data-player=1>
       0
-    </div>
+    </h2>
 
-    <div>
+    <h1>
       Player 2
-    </div>
-    <div>
+    </h1>
+    <h2 id='player2' data-player=2>
       0
-    </div>
+    </h2>
+
+    <script src='src/Player.js'></script>
+    <script src='src/Game.js'></script>
     <script src='https://code.jquery.com/jquery-2.0.3.min.js'></script>
-    <script src='javascript.js'></script>
+
+    <script>
+
+      var players = {1: new Player(), 2: new Player()}
+      var game = new Game(players[1], players[2]);
+
+      function updateScores() {
+        $('#player1').text(players[1].score);
+        $('#player2').text(players[2].score);
+      }
+
+      $(document).ready(function() {
+        $('#player1, #player2').on('click', function() {
+          num = $(this).data('player')
+          players[num].scorePoint();
+          updateScores();
+        });
+      });
+    </script>
   </body>
 </html>
