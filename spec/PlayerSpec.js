@@ -2,9 +2,13 @@ describe("Player", function() {
   var player;
 
   beforeEach(function() {
-    player = new Player();
+    player = new Player('Bruce');
     opponent = new Player();
     game = new Game(player, opponent);
+  });
+
+  it("should be initialized with a name", function() {
+    expect(player.name).toEqual('Bruce');
   });
 
   it("should be initialized with a score of 0", function() {
