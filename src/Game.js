@@ -5,9 +5,19 @@ function Game(player1, player2) {
   player2.game = this;
 }
 
-Game.prototype.checkForWin = function() {
-  if(this.player1.score == 11 || this.player2.score == 11) {
-    this.player1.score = 0;
-    this.player2.score = 0;
+Game.prototype.winner = function() {
+  var score1 = this.player1.score
+  var score2 = this.player2.score
+  if((score1 < 11 && score2 < 11) || Math.abs(score1 - score2) < 2) {
+    return null
   }
-};
+  else {
+    this.reset();
+    return score1 > score2 ? player1 : palyer2;
+  }
+}
+
+Game.prototype.reset = function() {
+  this.player1.score = 0;
+  this.player2.score = 0;
+}

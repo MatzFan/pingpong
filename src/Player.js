@@ -1,10 +1,13 @@
 function Player(name) {
   this.name = name;
   this.score = 0;
+  this.gamesWon = 0;
 }
 
 Player.prototype.scorePoint = function() {
   this.score += 1;
-  console.log(this.game);
-  this.game.checkForWin(this);
+  if(this.game.winner(this) === this) {
+    this.gamesWon ++;
+  }
+  // this.game.checkForWin(this);
 };
