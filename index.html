@@ -1,17 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang='en'>
   <head>
+  <meta charset="utf-8">
     <link rel='stylesheet' href='css/application.css' type="text/css">
   </head>
   <body>
     <title>Ping pong game!</title>
-    <table>
-      <tr class='player1'>
+    <table class='scoreboard'>
+      <tr id='player1' data-player=1>
         <td class='name'><td class='score'>0</td></td>
-        <td><button>Won point</button></button></td>
+        <td><button class='scorer'>Won point</button></td>
       </tr>
-      <tr class='player2'>
+      <tr id='player2' data-player=2>
         <td class='name'><td class='score'>0</td></td>
-        <td><button>Won point</button></button></td>
+        <td><button class='scorer'>Won point</button></td>
       </tr>
     </table>
 
@@ -25,16 +27,16 @@
       var game = new Game(players[1], players[2]);
 
       function updateScores() {
-        $('.').text(players[1].score);
-        $('#score2').text(players[2].score);
+        $('#player1 .score').text(players[1].score);
+        $('#player2 .score').text(players[2].score);
       }
 
       $(document).ready(function() {
-        $('.player1 .name').text(players[1].name);
-        $('.player2 .name').text(players[2].name);
+        $('#player1 .name').text(players[1].name);
+        $('#player2 .name').text(players[2].name);
 
-        $('#score1, #score2').on('click', function() {
-          num = $(this).data('player')
+        $('.scoreboard button').on('click', function() {
+          num = $(this).parent().parent().data('player')
           players[num].scorePoint();
           updateScores();
         });
