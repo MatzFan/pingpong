@@ -5,11 +5,13 @@ body {
 }
 
 table {
+  background-color: #CCFFFF;
   width: 400px;
   height: 100px;
+  font-size: 20px;
 }
 
-table, td {
+table {
   border-style: solid;
   border-width: 2px;
   border-color: blue;
@@ -17,6 +19,7 @@ table, td {
 
 td, .name {
   text-align: left;
+  font-weight: bold;
 }
 
 td, .score {
@@ -25,4 +28,5 @@ td, .score {
 
 td, button {
   text-align: center;
+  font-size: 20px;
 }

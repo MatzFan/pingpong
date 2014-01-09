@@ -6,14 +6,25 @@
   </head>
   <body>
     <title>Ping pong game!</title>
-    <table class='scoreboard'>
-      <tr id='player1' data-player=1>
+    <table class='game scoreboard'>
+    <caption>Game Scores</caption>
+      <tr class='player1' data-player=1>
         <td class='name'><td class='score'>0</td></td>
         <td><button class='scorer'>Won point</button></td>
       </tr>
-      <tr id='player2' data-player=2>
+      <tr class='player2' data-player=2>
         <td class='name'><td class='score'>0</td></td>
         <td><button class='scorer'>Won point</button></td>
+      </tr>
+    </table>
+    <br>
+    <table class='match scoreboard'>
+    <caption>Match Scores</caption>
+      <tr>
+        <th class='player1 name'>Player 1</th><th class='player2 name'>Player 2</th>
+      </tr>
+      <tr>
+        <td class='player1 score'>0</td><td id='player2 score'>0</td>
       </tr>
     </table>
 
@@ -26,19 +37,20 @@
       var players = {1: new Player('Bruce'), 2: new Player('Simon')}
       var game = new Game(players[1], players[2]);
 
-      function updateScores() {
-        $('#player1 .score').text(players[1].score);
-        $('#player2 .score').text(players[2].score);
+      function updateGameScores() {
+        $('.game .player1 .score').text(players[1].score);
+        $('.game .player2 .score').text(players[2].score);
       }
 
-      $(document).ready(function() {
-        $('#player1 .name').text(players[1].name);
-        $('#player2 .name').text(players[2].name);
+      $(function() {
+        $('.player1.name, .player1 .name').text(players[1].name);
+        $('.player2.name, .player2 .name').text(players[2].name);
 
-        $('.scoreboard button').on('click', function() {
+        $('.game.scoreboard button').on('click', function() {
           num = $(this).parent().parent().data('player')
           players[num].scorePoint();
-          updateScores();
+          updateGameScores();
+
         });
       });
     </script>
