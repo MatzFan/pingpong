@@ -13,7 +13,7 @@ Game.prototype.winner = function() {
   }
   else {
     this.reset();
-    return score1 > score2 ? player1 : palyer2;
+    return score1 > score2 ? this.player1 : this.player2;
   }
 }
 

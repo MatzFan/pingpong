@@ -9,5 +9,4 @@ Player.prototype.scorePoint = function() {
   if(this.game.winner(this) === this) {
     this.gamesWon ++;
   }
-  // this.game.checkForWin(this);
-};
+}

@@ -19,4 +19,12 @@ describe("Player", function() {
     player.scorePoint();
     expect(player.score).toEqual(1);
   });
+
+  it("should be be able to win games", function() {
+    var times = 11;
+    while(times --) {
+      player.scorePoint();
+    }
+    expect(player.gamesWon).toEqual(1);
+  });
 });

@@ -32,7 +32,7 @@ describe("Game", function() {
     expect(game.player2.score).toEqual(12);
   });
 
-  it("should be reset once a player reaches score of 11", function() {
+  it("should be reset once a player wins", function() {
     var times = 11
     while(times --) {
       game.player1.scorePoint();
