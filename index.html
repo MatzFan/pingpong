@@ -4,17 +4,16 @@
   </head>
   <body>
     <title>Ping pong game!</title>
-    <div id='container'>
-      <h1 id='player1'></h1>
-      <h2 id='score1' data-player=1>
-        0
-      </h2>
-
-      <h1 id='player2'></h1>
-      <h2 id='score2' data-player=2>
-        0
-      </h2>
-    </div>
+    <table>
+      <tr class='player1'>
+        <td class='name'><td class='score'>0</td></td>
+        <td><button>Won point</button></button></td>
+      </tr>
+      <tr class='player2'>
+        <td class='name'><td class='score'>0</td></td>
+        <td><button>Won point</button></button></td>
+      </tr>
+    </table>
 
     <script src='src/Player.js'></script>
     <script src='src/Game.js'></script>
@@ -26,13 +25,13 @@
       var game = new Game(players[1], players[2]);
 
       function updateScores() {
-        $('#score1').text(players[1].score);
+        $('.').text(players[1].score);
         $('#score2').text(players[2].score);
       }
 
       $(document).ready(function() {
-        $('#player1').text(players[1].name);
-        $('#player2').text(players[2].name);
+        $('.player1 .name').text(players[1].name);
+        $('.player2 .name').text(players[2].name);
 
         $('#score1, #score2').on('click', function() {
           num = $(this).data('player')

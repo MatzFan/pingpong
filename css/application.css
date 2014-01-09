@@ -8,6 +8,25 @@ h1 {
   font: 'Helvetica';
 }
 
-#container {
-  background-color: white;
+table {
+  width: 400px;
+  height: 100px;
+}
+
+table, td {
+  border-style: solid;
+  border-width: 2px;
+  border-color: blue;
+}
+
+td, .name {
+  text-align: left;
+}
+
+td, .score {
+  text-align: right;
+}
+
+td, button {
+  text-align: center;
 }
