@@ -17,6 +17,10 @@ table {
   border-color: blue;
 }
 
+table.match .name, .source{
+  text-align: center;
+}
+
 td, .name {
   text-align: left;
   font-weight: bold;
